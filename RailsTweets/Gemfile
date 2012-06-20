@@ -36,3 +36,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# Use twitter 
+# See http://twitter.rubyforge.org/
+gem 'twitter'
