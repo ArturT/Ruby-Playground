@@ -12,5 +12,5 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A[^@]{1,}@[^@]{1,}\.[a-zA-z]{2,}+\z/, :message => "is not valid"
   
   validates_format_of :twitter_login, :with => /\A[a-zA-Z]+\z/, :message => "only letters allowed"
-  validates_length_of :twitter_login, :maximum => 5 
+  validates_length_of :twitter_login, :maximum => 50 
 end
