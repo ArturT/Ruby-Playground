@@ -28,12 +28,19 @@
 		</p>
 	</div>
 	<div class="user_show_tweets">
-		<h1>Tweets</h1>		
-		<% for tweet in tweets @user.twitter_login %>
-			<div><%= tweet[:text] %></div>
-		<% end %>	
+		<span style="float:right;">
+			<a href="#" onclick="window.User.refresh_tweets('tweets_container', <%= @user.id %>);return false;">refresh tweets</a>
+		</span>
+		<h1>Tweets</h1>
+		<div id="tweets_container">		
+			<!-- async load content -->			
+		</div>	
 	</div>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<script type="text/javascript">
+	window.User.refresh_tweets('tweets_container', <%= @user.id %>)
+</script>

@@ -29,11 +29,15 @@ $color_gray: #efefef;
       border-bottom: 1px solid $color_gray;
     }
     
-    div {
-      padding: $px_small;
-      margin: $px_small;
-      background: $color_gray;
-      border-radius: $px_small;      
+    div#tweets_container {            
+      // style for one tweet
+      div {
+        padding: $px_small;
+        margin: $px_small;
+        background: $color_gray;
+        border-radius: $px_small;
+        margin-top: 0; // fix shake animation
+      }      
     } 
   }
   

@@ -80,4 +80,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /users/1/tweets  
+  def tweets
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # tweets.html.erb
+    end
+  end
 end
