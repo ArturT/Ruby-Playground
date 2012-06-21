@@ -30,7 +30,7 @@
 	<div class="user_show_tweets">
 		<h1>Tweets</h1>		
 		<% for tweet in tweets @user.twitter_login %>
-			<p><%= tweet[:text] %></p>
+			<div><%= tweet[:text] %></div>
 		<% end %>	
 	</div>
 </div>
