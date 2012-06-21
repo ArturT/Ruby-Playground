@@ -1,25 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Twitter login:</b>
-  <%= @user.twitter_login %>
-</p>
-
+<div class="user_show_container">
+	<div class="user_show_left">
+		<p>
+			<%= gravatar_for @user.email, :class => 'img_gravatar', :alt => "#{@user.name} #{@user.last_name}"  %>
+		</p>
+	</div>
+	<div class="user_show_right">
+		<p>
+		  <b>Name:</b>
+		  <%= @user.name %>
+		</p>
+		
+		<p>
+		  <b>Last name:</b>
+		  <%= @user.last_name %>
+		</p>
+		
+		<p>
+		  <b>Email:</b>
+		  <%= @user.email %>
+		</p>
+		
+		<p>
+		  <b>Twitter login:</b>
+		  <%= @user.twitter_login %>
+		</p>
+	</div>
+	<div class="user_show_tweets">
+		<h1>Tweets</h1>
+		<%= tweets @user.twitter_login %>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

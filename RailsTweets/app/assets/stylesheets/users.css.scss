@@ -1,3 +1,38 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$padding_small: 7px;
+$color_gray: #efefef; 
+
+.user_show_container {
+  width: 50%;
+
+  .user_show_left {
+    float: left;
+    width: 100px;
+    padding: $padding_small;  
+  }
+  
+  
+  .user_show_right {
+    float: left;
+    min-width: 150px;
+    padding: $padding_small; 
+  }
+  
+  .user_show_tweets {
+    clear: both;
+    padding: $padding_small;
+    
+    h1 {
+      font-size: 16px;
+      border-bottom: 1px solid $color_gray;
+    }
+  }
+  
+  img.img_gravatar {
+    border: 1px solid $color_gray;
+    padding: $padding_small;  
+  }
+}
