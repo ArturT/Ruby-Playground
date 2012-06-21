@@ -19,14 +19,14 @@ module UsersHelper
   #
   # @param [string] twitter_login
   # @param [integer] limit [optional] Default=3. Limit of recent tweets. 
-  # @return [string] Recent user's tweets.
+  # @return [Array] Recent user's tweets.
   def tweets twitter_login, limit = nil
-    limit = 3 if limit.nil? 
+    limit ||= 3 
     
     arr = Array.new
     i = 0        
     Twitter.user_timeline(twitter_login, :rpp => limit, :result_type => "recent").map do |status|
-      arr[i] = status.text
+      arr[i] = { :from_user => status.from_user, :text => status.text }
         
       i += 1
       break if i == limit
