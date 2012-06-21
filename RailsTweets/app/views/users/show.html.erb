@@ -28,8 +28,10 @@
 		</p>
 	</div>
 	<div class="user_show_tweets">
-		<h1>Tweets</h1>
-		<%= tweets @user.twitter_login %>
+		<h1>Tweets</h1>		
+		<% for text in tweets @user.twitter_login %>
+			<p><%= text %></p>
+		<% end %>	
 	</div>
 </div>
 

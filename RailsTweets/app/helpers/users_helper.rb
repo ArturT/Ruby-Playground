@@ -22,10 +22,17 @@ module UsersHelper
   # @return [string] Recent user's tweets.
   def tweets twitter_login, limit = nil
     limit = 3 if limit.nil? 
-            
+    
+    arr = Array.new
+    i = 0        
     Twitter.user_timeline(twitter_login, :rpp => limit, :result_type => "recent").map do |status|
-      "#{status.from_user}: #{status.text}"
+      arr[i] = status.text
+        
+      i += 1
+      break if i == limit
     end
+    
+    arr    
   end
   
 end
