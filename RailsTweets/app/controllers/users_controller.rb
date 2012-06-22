@@ -82,9 +82,10 @@ class UsersController < ApplicationController
   end
   
   # GET /users/1/tweets  
+  # GET /users/1/tweets/5 # where 5 is limit of tweets   
   def tweets
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       format.html # tweets.html.erb
     end

@@ -29,7 +29,8 @@
 	</div>
 	<div class="user_show_tweets">
 		<span style="float:right;">
-			<a href="#" onclick="window.User.refresh_tweets('tweets_container', <%= @user.id %>);return false;">refresh tweets</a>
+			Tweets limit: <input type="text" style="width:40px;" id="limit_tweets" value="3" />
+			<a href="#" onclick="window.User.refresh_tweets('tweets_container', <%= @user.id %>, $('#limit_tweets').val());return false;">refresh tweets</a>
 		</span>
 		<h1>Tweets</h1>
 		<div id="tweets_container">		
@@ -42,5 +43,11 @@
 <%= link_to 'Back', users_path %>
 
 <script type="text/javascript">
+	// loading tweets after page loaded
 	window.User.refresh_tweets('tweets_container', <%= @user.id %>)
+	
+	// refresh tweets list after input #limit_tweets changed
+	$('#limit_tweets').change(function() {	  
+	  window.User.refresh_tweets('tweets_container', <%= @user.id %>, $(this).val())
+	});
 </script>

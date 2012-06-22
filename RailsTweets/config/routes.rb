@@ -1,7 +1,7 @@
 RailsTweets::Application.routes.draw do
   resources :users
 
-  match 'users/:id/tweets' => 'users#tweets'
+  match 'users/:id/tweets(/:limit_tweets)' => 'users#tweets'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

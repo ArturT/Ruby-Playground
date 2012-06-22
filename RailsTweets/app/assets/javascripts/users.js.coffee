@@ -6,11 +6,24 @@
 # namespace User
 window.User = {}
 
-window.User.refresh_tweets = (id_element, id_user) ->
-  toggle_html(id_element, 'loading...');
+# function can be called only once at the same time
+refresh_tweets_static_lock = false; 
+window.User.refresh_tweets = (id_element, id_user, limit_tweets = null) ->  
+  if refresh_tweets_static_lock == false    
+    refresh_tweets_static_lock = true;
+    toggle_html(id_element, 'loading...');
     
-  $.ajax({
-    url: '/users/'+id_user+'/tweets',
-    success: (data) ->
-      toggle_html(id_element, data);
-  });
+    str = '' 
+    if(!isNaN(limit_tweets) && limit_tweets > 0)    
+        str = '/'+limit_tweets
+      
+    $.ajax({
+      url: '/users/'+id_user+'/tweets'+str,
+      success: (data) ->
+        toggle_html(id_element, data);
+        setTimeout(() -> 
+          refresh_tweets_static_lock = false
+        ,600) # 600ms is time of animation for arg "slow" in jquery.animate
+    });
+  
+

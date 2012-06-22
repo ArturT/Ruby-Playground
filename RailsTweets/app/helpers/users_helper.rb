@@ -20,8 +20,12 @@ module UsersHelper
   # @param [string] twitter_login
   # @param [integer] limit [optional] Default=3. Limit of recent tweets. 
   # @return [Array] Recent user's tweets.
-  def tweets twitter_login, limit = nil
-    limit ||= 3 
+  def tweets twitter_login, limit = nil      
+    if !limit.nil?
+      limit = limit.to_i
+    else
+      limit = 3
+    end
     
     arr = Array.new
     i = 0        
