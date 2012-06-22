@@ -41,5 +41,9 @@ gem 'jquery-rails'
 # See http://twitter.rubyforge.org/
 gem 'twitter'
 
-# http://rubygems.org/gems/rails_autolink
+# See http://rubygems.org/gems/rails_autolink
 gem "rails_autolink", "~> 1.0.9"
+
+# Gem required to run rails console
+# See http://stackoverflow.com/a/8973725
+gem 'rb-readline'
