@@ -40,3 +40,6 @@ gem 'jquery-rails'
 # Use twitter 
 # See http://twitter.rubyforge.org/
 gem 'twitter'
+
+# http://rubygems.org/gems/rails_autolink
+gem "rails_autolink", "~> 1.0.9"
